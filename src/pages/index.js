@@ -28,18 +28,18 @@ const IndexPage = ({ data }) => {
         {/* ###############################    HEADER START ########################################### */}
         <div className={`${albumStyle.slope} bg-gray-200`} />
         <div
-          className=" max-w-lg md:max-w-2xl pl-12 pt-16 pr-12 md:flex md:justify-end 
+          className=" max-w-lg md:max-w-2xl pl-10 pt-16 pr-10 md:flex md:justify-end 
           md:flex-row-reverse m-auto md:pl-4 md:pr-4 lg:max-w-3xl xl:max-w-5xl  xl:m-auto relative mdx:pt-24 lgx:max-w-960 lgx:px-12  xl-mx-0"
         >
           <div className="md:ml-8 md:mt-3 lg:ml-12">
-            <div className="text-4xl font-medium md:text-3xl md:font-bold text-gray-900 lg:text-4xl">
+            <div className="text-3xl font-medium md:text-3xl md:font-bold text-gray-900 lgx:text-4xl">
               {data.site.siteMetadata.title}
             </div>
             <div className="text-base mt-3 md:text-base text-gray-900">
-              By {data.site.siteMetadata.author}
+              {/* By {data.site.siteMetadata.author} */}
             </div>
             <ul className="md:flex mt-6 hidden text-gray-100">
-              {/* <li className="mr-8">
+              <li className="mr-8">
                 <a href={data.site.siteMetadata.facebook}>
                   <svg
                     width="24"
@@ -55,7 +55,7 @@ const IndexPage = ({ data }) => {
                     />
                   </svg>
                 </a>
-              </li> */}
+              </li>
               <li className="mr-8">
                 <a href={data.site.siteMetadata.twitter}>
                   <svg
@@ -128,18 +128,14 @@ const IndexPage = ({ data }) => {
            md:text-xl"
           />
           <div className="mt-3 text-gray-700 leading-relaxed md:text-xl">
-            Hey, meet Bilal, Kwaku, Patrick &amp; Tom. 4 Black &amp; Mixed-Race
-            guys who became friends whilst studying at Cambridge University.
-            Join us as we talk about life before, during and well - after 'The
-            Bridge'. Expect chats about life, and our own experiences
+            The Braw and The Brave is a podcast about people and their passions.
+            Each episode I chat with creative and courageous folks who do what
+            they love and love what they do. Good conversation, sharing stories
+            to inspire, move and motivate.
           </div>
-          <div className="mt-3 text-gray-700 leading-relaxed md:text-xl">
-            Cast:
-            <br /> Kwaku: @KwakuDapaah_ <br /> Patrick: @CariocoLondrino <br />{" "}
-            Bilal: @Tweetsbybilal <br /> Tom: @TomTheEconomist
-          </div>
+          <div className="mt-3 text-gray-700 leading-relaxed md:text-xl" />
           <ul className={`flex justify-center mt-12 md:mt-16 text-gray-900`}>
-            {/* <li className="">
+            <li className="">
               <a href={data.site.siteMetadata.facebook}>
                 <svg
                   width="24"
@@ -155,8 +151,8 @@ const IndexPage = ({ data }) => {
                   />
                 </svg>
               </a>
-            </li> */}
-            <li className="">
+            </li>
+            <li className="ml-10">
               <a href={data.site.siteMetadata.twitter}>
                 <svg
                   width="24"
@@ -240,7 +236,7 @@ const IndexPage = ({ data }) => {
                       {formatSubTitle(node.itunes.summary)}
                     </div>
                     <div className="mt-2 hidden md:block">
-                      {node.itunes.summary}
+                      {formatSubTitlelg(node.itunes.summary)}
                     </div>
                     <div className="text-sm text-gray-700 font-medium mt-2">
                       {formatTime(node.itunes.duration)}
@@ -320,6 +316,13 @@ function formatDate(dateString) {
 function formatSubTitle(subTitle) {
   return truncate(subTitle, {
     length: 100, // maximum 30 characters
+    separator: /,?\.* +/ // separate by spaces, including preceding commas and periods
+  });
+}
+
+function formatSubTitlelg(subTitle) {
+  return truncate(subTitle, {
+    length: 250, // maximum 30 characters
     separator: /,?\.* +/ // separate by spaces, including preceding commas and periods
   });
 }

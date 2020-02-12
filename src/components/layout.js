@@ -33,7 +33,7 @@ const Layout = ({ children }) => {
           {data.site.siteMetadata.title} © {new Date().getFullYear()}
         </div>
         <ul className={`flex justify-center mt-8 text-gray-100`}>
-          {/* <li className="ml-6 mr-6 hover">
+          <li className="ml-6 mr-6 hover">
             <a href={data.site.siteMetadata.facebook}>
               <svg
                 width="24"
@@ -49,7 +49,7 @@ const Layout = ({ children }) => {
                 />
               </svg>
             </a>
-          </li> */}
+          </li>
           <li className="ml-6 mr-6">
             <a href={data.site.siteMetadata.twitter}>
               <svg
